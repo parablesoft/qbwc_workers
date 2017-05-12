@@ -9,6 +9,8 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string :billing_city
     t.string :billing_state
     t.string :billing_zip
+    t.string :phone
+    t.string :email
   end
 
 
@@ -32,7 +34,9 @@ class CustomerConfigInModel < ActiveRecord::Base
   def self.qbwc_worker_import_config
     {
       name: ["name"],
-      billing_address_1: ["bill_address","addr1"]
+      billing_address_1: ["bill_address","addr1"],
+      email: ["email"],
+      phone: ["phone"]
     }
   end
 end

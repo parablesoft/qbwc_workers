@@ -17,14 +17,14 @@ RSpec.describe QbwcWorkers::Workers::Customer do
     context "default configuration" do
       it "imports the customers" do
 	load_customers
-	expect(Customer.count).to eq 7
+	expect(Customer.count).to eq 3
       end
 
       it "does not import the customers twice" do
 	load_customers
-	expect(Customer.count).to eq 7
+	expect(Customer.count).to eq 3
 	load_customers
-	expect(Customer.count).to eq 7
+	expect(Customer.count).to eq 3
       end
 
       context "first customer" do
@@ -33,7 +33,7 @@ RSpec.describe QbwcWorkers::Workers::Customer do
 	end
 
 	let(:customer) {Customer.first}
-	it{expect(customer.name).to eq("Deco")}
+	it{expect(customer.name).to eq("Candid")}
 	it{expect(customer.qb_id).to eq "80000008-1483639220"}
 	it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
 	it{expect(customer.billing_address_2).to eq "Suite B"}
@@ -52,12 +52,12 @@ RSpec.describe QbwcWorkers::Workers::Customer do
 	load_customers
       end
 
-      it{expect(QbCustomer.count).to eq 7}
+      it{expect(QbCustomer.count).to eq 3}
 
     end
 
 
-    context "config in initializer" do
+    context "config in model" do
       before do
 	QbwcWorkers::Configuration.configure do |config|
 	  config.import_map = [{worker: "Customer", model: "CustomerConfigInModel", config_in_model: true}]
@@ -65,21 +65,34 @@ RSpec.describe QbwcWorkers::Workers::Customer do
 	load_customers
       end
 
-      it{expect(CustomerConfigInModel.count).to eq 7}
+      it{expect(CustomerConfigInModel.count).to eq 3}
 
       context "first customer" do
 	before do
 	  load_customers
 	end
 
+
+
 	let(:customer) {Customer.first}
-	it{expect(customer.name).to eq("Deco")}
-	it{expect(customer.qb_id).to eq "80000008-1483639220"}
-	it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
-	it{expect(customer.billing_address_2).to be_nil}
-	it{expect(customer.billing_city).to be_nil}
-	it{expect(customer.billing_state).to be_nil}
-	it{expect(customer.billing_zip).to be_nil}
+	let(:expected) do
+	  {
+	    "id"=>customer.id,
+	    "name"=>"Candid",
+	    "qb_id"=>"80000008-1483639220",
+	    "billing_address_1"=>"1234 Anywhere Lane",
+	    "billing_address_2"=>nil,
+	    "billing_city"=>nil,
+	    "billing_state"=>nil,
+	    "billing_zip"=>nil,
+	    "phone"=>"813-555-1212",
+	    "email"=>"bob@example.com"
+	  } 
+	end
+	it "imports the right attributes based on the model config" do
+	  expect(customer.as_json).to match expected
+	end
+
 
       end
     end
