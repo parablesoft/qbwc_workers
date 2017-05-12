@@ -1,0 +1,50 @@
+require 'spec_helper'
+
+RSpec.describe QbwcWorkers::Workers::Customer do
+  subject{QbwcWorkers::Workers::Customer.new}
+
+
+  describe "#requests" do
+    it{expect(subject.requests(nil,nil,nil)).to match [QbwcWorkers::Requests::Customer.request]}
+  end
+
+
+  describe "#handle_response" do
+
+    def load_customers
+      subject.handle_response(load_query("customers"),nil,nil,nil,nil)
+    end
+
+    it "imports the customers" do
+      load_customers
+      expect(Customer.count).to eq 7
+    end
+
+    it "does not import the customers twice" do
+      load_customers
+      expect(Customer.count).to eq 7
+      load_customers
+      expect(Customer.count).to eq 7
+    end
+
+    context "first customer" do
+      before do
+	load_customers
+      end
+
+      let(:customer) {Customer.first}
+      it{expect(customer.name).to eq("Deco")}
+      it{expect(customer.qb_id).to eq "80000008-1483639220"}
+      it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
+      it{expect(customer.billing_address_2).to eq "Suite B"}
+      it{expect(customer.billing_city).to eq "Tampa"}
+      it{expect(customer.billing_state).to eq "FL"}
+      it{expect(customer.billing_zip).to eq "33601"}
+
+    end
+      
+  end
+
+
+  
+end

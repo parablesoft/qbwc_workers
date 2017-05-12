@@ -1,0 +1,140 @@
+--- !ruby/hash:Qbxml::Hash
+xml_attributes:
+  statusCode: '0'
+  statusSeverity: Info
+  statusMessage: Status OK
+customer_ret:
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000008-1483639220
+  time_created: '2017-01-05T13:00:20-05:00'
+  time_modified: '2017-01-05T13:00:20-05:00'
+  edit_sequence: '1483639220'
+  name: Deco
+  full_name: Deco
+  is_active: true
+  sublevel: 0
+  balance: 0.0
+  total_balance: 0.0
+  job_status: None
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: 1234 Anywhere Lane
+    addr2: Suite B
+    city: Tampa
+    state: FL
+    postal_code: 33601
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000009-1483728928
+  time_created: '2017-01-06T13:55:28-05:00'
+  time_modified: '2017-01-06T13:55:28-05:00'
+  edit_sequence: '1483728928'
+  name: GF ParableSoft
+  full_name: GF ParableSoft
+  is_active: true
+  sublevel: 0
+  balance: 0.0
+  total_balance: 0.0
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000005-1473281386
+  time_created: '2016-09-07T16:49:46-05:00'
+  time_modified: '2016-09-07T16:49:46-05:00'
+  edit_sequence: '1473281386'
+  name: Gries
+  full_name: Gries
+  is_active: true
+  sublevel: 0
+  company_name: Gries
+  salutation: Mr
+  first_name: Mark
+  last_name: P
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Gries
+    addr2: Mark P
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Gries
+    addr2: Mark P
+  balance: 0.0
+  total_balance: 0.0
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000006-1473281440
+  time_created: '2016-09-07T16:50:40-05:00'
+  time_modified: '2016-09-07T16:50:40-05:00'
+  edit_sequence: '1473281440'
+  name: Marygrove
+  full_name: Marygrove
+  is_active: true
+  sublevel: 0
+  company_name: Marygrove
+  salutation: Mr
+  first_name: Bob
+  last_name: F
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Marygrove
+    addr2: Bob F
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Marygrove
+    addr2: Bob F
+  phone: 813-867-5309
+  email: bob@example.com
+  balance: 0.0
+  total_balance: 0.0
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000004-1465564376
+  time_created: '2016-06-10T09:12:56-05:00'
+  time_modified: '2016-06-10T09:12:56-05:00'
+  edit_sequence: '1465564376'
+  name: ParableSoft
+  full_name: ParableSoft
+  is_active: true
+  sublevel: 0
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: ParableSoft
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: ParableSoft
+  balance: 0.0
+  total_balance: 0.0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000002-1465501463
+    full_name: Non
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000A-1484171049
+  time_created: '2017-01-11T16:44:09-05:00'
+  time_modified: '2017-01-11T16:44:09-05:00'
+  edit_sequence: '1484171049'
+  name: TCI
+  full_name: TCI
+  is_active: true
+  sublevel: 0
+  balance: 0.0
+  total_balance: 0.0
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000007-1483639213
+  time_created: '2017-01-05T13:00:13-05:00'
+  time_modified: '2017-01-05T13:00:13-05:00'
+  edit_sequence: '1483639213'
+  name: TRRN
+  full_name: TRRN
+  is_active: true
+  sublevel: 0
+  balance: 0.0
+  total_balance: 0.0
+  job_status: None

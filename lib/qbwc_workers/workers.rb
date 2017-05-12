@@ -1,0 +1,3 @@
+module QbwcWorkers::Workers
+
+end

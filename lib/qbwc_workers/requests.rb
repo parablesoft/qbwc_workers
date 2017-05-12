@@ -1,0 +1,3 @@
+module QbwcWorkers::Requests
+
+end
