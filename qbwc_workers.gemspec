@@ -43,5 +43,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "wash_out", ["= 0.10.0"]
   spec.add_dependency 'actionview', ['>= 4.1.0']
   spec.add_dependency "qbwc"
+  spec.add_dependency "hashie"
   spec.add_development_dependency('rails', [">= 4.1.0"])
 end
