@@ -44,7 +44,7 @@ RSpec.describe QbwcWorkers::Workers::Customer do
       end
     end
 
-    context "different import class" do
+    context "config in initializer" do
       before do
 	QbwcWorkers::Configuration.configure do |config|
 	  config.import_map = [{worker: "Customer", model: "QbCustomer", fields: {name: ["name"]}}]
@@ -54,6 +54,34 @@ RSpec.describe QbwcWorkers::Workers::Customer do
 
       it{expect(QbCustomer.count).to eq 7}
 
+    end
+
+
+    context "config in initializer" do
+      before do
+	QbwcWorkers::Configuration.configure do |config|
+	  config.import_map = [{worker: "Customer", model: "CustomerConfigInModel", config_in_model: true}]
+	end
+	load_customers
+      end
+
+      it{expect(CustomerConfigInModel.count).to eq 7}
+
+      context "first customer" do
+	before do
+	  load_customers
+	end
+
+	let(:customer) {Customer.first}
+	it{expect(customer.name).to eq("Deco")}
+	it{expect(customer.qb_id).to eq "80000008-1483639220"}
+	it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
+	it{expect(customer.billing_address_2).to be_nil}
+	it{expect(customer.billing_city).to be_nil}
+	it{expect(customer.billing_state).to be_nil}
+	it{expect(customer.billing_zip).to be_nil}
+
+      end
     end
   end
 

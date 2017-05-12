@@ -21,12 +21,22 @@ class QbwcWorkers::Workers::Base# < QBWC::Worker
   end
 
   def import_map_fields
-    @import_map_fields ||= self.import_map_item[:fields]
+    @import_map_fields ||= get_import_map_fields
+  end
+
+  def get_import_map_fields
+    if self.import_map_item[:config_in_model]
+      import_model.qbwc_worker_import_config
+    else
+      self.import_map_item[:fields]
+    end
+
   end
 
   def import_model
     @import_model ||= import_map_item[:model].constantize
   end
+
 
 
   private

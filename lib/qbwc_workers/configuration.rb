@@ -5,7 +5,10 @@ module QbwcWorkers
 
 
     CUSTOMER_IMPORT_MAP = {
-      name: ["name"],
+      name: ["name"]
+    }
+
+    CUSTOMER_IMPORT_MAP_BILLING_ADDRESS = {
       billing_address_1: ["bill_address","addr1"],
       billing_address_2: ["bill_address","addr2"],
       billing_city: ["bill_address","city"],
@@ -15,7 +18,17 @@ module QbwcWorkers
 
 
     def initialize
-      self.import_map = [{worker: "Customer", model:"Customer", fields: CUSTOMER_IMPORT_MAP}]
+      self.import_map = []
+      self.import_map << Configuration.customer_mapping([:billing_address,:contact_information])
+    end
+
+
+
+    def self.customer_mapping(maps = [])
+      fields = {}
+      fields.merge! CUSTOMER_IMPORT_MAP
+      fields.merge! CUSTOMER_IMPORT_MAP_BILLING_ADDRESS if maps.include?(:billing_address)
+      {worker: "Customer", model:"Customer", fields: fields}
     end
 
     class << self

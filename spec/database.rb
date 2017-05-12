@@ -24,3 +24,15 @@ end
 class QbCustomer < ActiveRecord::Base
 
 end
+
+class CustomerConfigInModel < ActiveRecord::Base
+  self.table_name="customers"
+
+
+  def self.qbwc_worker_import_config
+    {
+      name: ["name"],
+      billing_address_1: ["bill_address","addr1"]
+    }
+  end
+end
