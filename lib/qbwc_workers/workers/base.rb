@@ -2,6 +2,8 @@
 require "hashie"
 class QbwcWorkers::Workers::Base# < QBWC::Worker
 
+  LIST_ID = "list_id"
+
   def config
     @config ||= QbwcWorkers::Configuration.configuration
   end
@@ -29,20 +31,20 @@ class QbwcWorkers::Workers::Base# < QBWC::Worker
 
   private
   def import_data(data)
-    data.each do |item|
-      import_item(item)
-    end
+    data.each {|item| import_item(item)}
   end
 
-  def import_item(item)
-    import_item = item.extend Hashie::Extensions::DeepFetch
-    qb_id = item["list_id"]
 
+  def import_item(item)
     create_params = {}
+    import_item = item.extend Hashie::Extensions::DeepFetch
+
     import_map_fields.each_pair do |key, value|
       create_params[key] = import_item.deep_fetch(*value) {|k| nil}
     end
 
-    self.import_model.create_with(create_params).find_or_create_by(qb_id: qb_id)
+    self.import_model.create_with(create_params).find_or_create_by(qb_id: item[LIST_ID])
   end
+
+
 end
