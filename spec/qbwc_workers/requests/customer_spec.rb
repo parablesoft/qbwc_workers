@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe QbwcWorkers::Requests::Customer do
+RSpec.describe QbwcWorkers::Requests::CustomerImport do
 
     let(:expected) do
       {
@@ -9,5 +9,5 @@ RSpec.describe QbwcWorkers::Requests::Customer do
       }
     end
 
-  it{expect(QbwcWorkers::Requests::Customer.request).to match expected}
+  it{expect(QbwcWorkers::Requests::CustomerImport.request).to match expected}
 end

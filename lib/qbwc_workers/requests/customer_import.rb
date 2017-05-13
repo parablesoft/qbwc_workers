@@ -1,12 +1,6 @@
-class QbwcWorkers::Requests::CustomerImport
-
-  REQUEST ={
-	:customer_query_rq =>{
-	}
+class QbwcWorkers::Requests::CustomerImport < QbwcWorkers::Requests::BaseImport
+  self.query  ={
+    :customer_query_rq =>{
+    }
   }
-
-  def self.request
-    REQUEST
-  end
-
 end
