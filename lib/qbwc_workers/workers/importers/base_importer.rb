@@ -1,8 +1,19 @@
-# require 'qbwc'
 require "hashie"
-class QbwcWorkers::Workers::Base# < QBWC::Worker
+class QbwcWorkers::Workers::Importers::BaseImporter
 
   LIST_ID = "list_id"
+
+  class_attribute :request
+  class_attribute :result
+
+  def requests(job, session, data)
+    request
+  end
+
+
+  def handle_response(response, session, job, request, data)
+    import_data(response[result])
+  end
 
   def config
     @config ||= QbwcWorkers::Configuration.configuration

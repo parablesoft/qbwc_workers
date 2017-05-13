@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe QbwcWorkers::Workers::Customer do
-  subject{QbwcWorkers::Workers::Customer.new}
+RSpec.describe QbwcWorkers::Workers::Importers::Customer do
+  subject{QbwcWorkers::Workers::Importers::Customer.new}
 
 
   describe "#requests" do
-    it{expect(subject.requests(nil,nil,nil)).to match [QbwcWorkers::Requests::Customer.request]}
+    it{expect(subject.requests(nil,nil,nil)).to match [QbwcWorkers::Requests::CustomerImport.request]}
   end
 
 

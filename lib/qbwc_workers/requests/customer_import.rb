@@ -1,4 +1,4 @@
-class QbwcWorkers::Requests::Customer 
+class QbwcWorkers::Requests::CustomerImport
 
   REQUEST ={
 	:customer_query_rq =>{
