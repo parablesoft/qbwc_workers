@@ -17,14 +17,14 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
     context "default configuration" do
       it "imports the customers" do
 	load_customers
-	expect(Customer.count).to eq 3
+	expect(Customer.count).to eq 6
       end
 
       it "does not import the customers twice" do
 	load_customers
-	expect(Customer.count).to eq 3
+	expect(Customer.count).to eq 6
 	load_customers
-	expect(Customer.count).to eq 3
+	expect(Customer.count).to eq 6
       end
 
       context "first customer" do
@@ -33,7 +33,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	end
 
 	let(:customer) {Customer.first}
-	it{expect(customer.name).to eq("Candid")}
+	it{expect(customer.name).to eq("ACME Widgets")}
 	it{expect(customer.qb_id).to eq "80000008-1483639220"}
 	it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
 	it{expect(customer.billing_address_2).to eq "Suite B"}
@@ -52,7 +52,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	load_customers
       end
 
-      it{expect(QbCustomer.count).to eq 3}
+      it{expect(QbCustomer.count).to eq 6}
 
     end
 
@@ -65,7 +65,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	load_customers
       end
 
-      it{expect(CustomerConfigInModel.count).to eq 3}
+      it{expect(CustomerConfigInModel.count).to eq 6}
 
       context "first customer" do
 	before do
@@ -78,7 +78,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	let(:expected) do
 	  {
 	    "id"=>customer.id,
-	    "name"=>"Candid",
+	    "name"=>"ACME Widgets",
 	    "qb_id"=>"80000008-1483639220",
 	    "billing_address_1"=>"1234 Anywhere Lane",
 	    "billing_address_2"=>nil,

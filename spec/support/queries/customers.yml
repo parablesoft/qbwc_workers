@@ -8,47 +8,201 @@ customer_ret:
   xml_attributes: {}
   list_id: 80000008-1483639220
   time_created: '2017-01-05T13:00:20-05:00'
-  time_modified: '2017-01-05T13:00:20-05:00'
-  edit_sequence: '1483639220'
-  name: Candid
-  full_name: Candid
+  time_modified: '2017-05-13T13:34:23-05:00'
+  edit_sequence: '1494696863'
+  name: ACME Widgets
+  full_name: ACME Widgets
   is_active: true
   sublevel: 0
-  balance: 0.0
-  total_balance: 0.0
-  job_status: None
   bill_address: !ruby/hash:Qbxml::Hash
     xml_attributes: {}
     addr1: 1234 Anywhere Lane
     addr2: Suite B
     city: Tampa
     state: FL
-    postal_code: 33601
-  phone: 813-555-1212
+    postal_code: '33601'
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: ACME Widgets
+    addr2: 1234 Anywhere Lane
+    addr3: Tampa, FL 33601
   email: bob@example.com
+  phone: 813-555-1212
+  balance: 0.0
+  total_balance: 0.0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
+  item_sales_tax_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000D-1494675610
+    full_name: Florida
+  job_status: None
 - !ruby/hash:Qbxml::Hash
   xml_attributes: {}
-  list_id: 80000009-1483728928
-  time_created: '2017-01-06T13:55:28-05:00'
-  time_modified: '2017-01-06T13:55:28-05:00'
-  edit_sequence: '1483728928'
+  list_id: 80000006-1473281440
+  time_created: '2016-09-07T16:50:40-05:00'
+  time_modified: '2017-05-13T13:42:31-05:00'
+  edit_sequence: '1494697351'
+  name: Bob's Rollscreens
+  full_name: Bob's Rollscreens
+  is_active: true
+  sublevel: 0
+  company_name: Bob's Rollscreens
+  salutation: Mr
+  first_name: Bob
+  last_name: Simmons
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Marygrove
+    addr2: Bob Simmons
+    addr3: 1256 Town and Country Rd
+    city: Sarasota
+    state: FL
+    postal_code: '33601'
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Marygrove
+    addr2: Bob Simmons
+    addr3: 1256 Town and Country Rd
+    addr4: Sarasota, FL 33601
+  phone: 813-867-5309
+  email: bob@example.com
+  balance: 0.0
+  total_balance: 0.0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000002-1465501463
+    full_name: Non
+  item_sales_tax_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000C-1494675578
+    full_name: Exempt
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000C-1485361547
+  time_created: '2017-01-25T11:25:47-05:00'
+  time_modified: '2017-05-13T07:44:33-05:00'
+  edit_sequence: '1494675873'
+  name: Foobar
+  full_name: Foobar
+  is_active: true
+  sublevel: 0
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Foobar Inc
+    addr2: 555 Big St.
+    city: Tampa
+    state: FL
+    postal_code: '33609'
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Foobar Inc
+    addr2: 555 Big St.
+    addr3: Tampa, FL 33609
+  email: foo@bar.com
+  balance: 0.0
+  total_balance: 0.0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000B-1485340633
+  time_created: '2017-01-25T05:37:13-05:00'
+  time_modified: '2017-05-13T13:43:47-05:00'
+  edit_sequence: '1494697427'
+  name: MHD
+  full_name: MHD
+  is_active: true
+  sublevel: 0
+  company_name: MHD
+  salutation: Mrs
+  first_name: Jill
+  last_name: Sanderson
+  email: jill@mhd.com
+  balance: 0.0
+  total_balance: 0.0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
+  item_sales_tax_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000A-1494675509
+    full_name: Bay
+  job_status: None
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000004-1465564376
+  time_created: '2016-06-10T09:12:56-05:00'
+  time_modified: '2017-05-13T13:40:08-05:00'
+  edit_sequence: '1494697208'
   name: ParableSoft
   full_name: ParableSoft
   is_active: true
   sublevel: 0
-  balance: 0.0
-  total_balance: 0.0
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: ParableSoft
+    addr2: 1612 Williams Rd
+    city: Plant City
+    state: FL
+    postal_code: '33565'
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: ParableSoft
+    addr2: 1612 Williams Rd
+    addr3: Plant City, FL 33565
+  customer_type_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000005-1485362402
+    full_name: Billable
+  balance: 504.5
+  total_balance: 504.5
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
   job_status: None
 - !ruby/hash:Qbxml::Hash
   xml_attributes: {}
-  list_id: 8000000A-1484171049
-  time_created: '2017-01-11T16:44:09-05:00'
-  time_modified: '2017-01-11T16:44:09-05:00'
-  edit_sequence: '1484171049'
-  name: ACME
-  full_name: ACME
+  list_id: 80000005-1473281386
+  time_created: '2016-09-07T16:49:46-05:00'
+  time_modified: '2017-05-13T13:41:22-05:00'
+  edit_sequence: '1494697282'
+  name: Tom's Investments
+  full_name: Tom's Investments
   is_active: true
   sublevel: 0
+  company_name: Tom's Investments
+  salutation: Mr
+  first_name: Tom
+  last_name: Gigante
+  bill_address: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Tom's Investments
+    addr2: 1688 Westshore St
+    city: Tampa
+    state: FL
+    postal_code: '33609'
+  bill_address_block: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    addr1: Tom's Investments
+    addr2: 1688 Westshore St
+    addr3: Tampa, FL 33609
   balance: 0.0
   total_balance: 0.0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
+  item_sales_tax_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000010-1494697279
+    full_name: Hillsborough - FL
   job_status: None

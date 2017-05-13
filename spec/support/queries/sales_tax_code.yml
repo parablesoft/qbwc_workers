@@ -1,0 +1,26 @@
+--- !ruby/hash:Qbxml::Hash
+xml_attributes:
+  statusCode: '0'
+  statusSeverity: Info
+  statusMessage: Status OK
+sales_tax_code_ret:
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000001-1465501463
+  time_created: '2016-06-09T15:44:23-05:00'
+  time_modified: '2016-06-09T15:44:23-05:00'
+  edit_sequence: '1465501463'
+  name: Tax
+  is_active: true
+  is_taxable: true
+  desc: Taxable Sales
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000002-1465501463
+  time_created: '2016-06-09T15:44:23-05:00'
+  time_modified: '2016-06-09T15:44:23-05:00'
+  edit_sequence: '1465501463'
+  name: Non
+  is_active: true
+  is_taxable: false
+  desc: Non-Taxable Sales

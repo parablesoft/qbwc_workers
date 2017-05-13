@@ -1,0 +1,62 @@
+--- !ruby/hash:Qbxml::Hash
+xml_attributes:
+  statusCode: '0'
+  statusSeverity: Info
+  statusMessage: Status OK
+item_sales_tax_ret:
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000A-1494675509
+  time_created: '2017-05-13T07:38:29-05:00'
+  time_modified: '2017-05-13T07:38:29-05:00'
+  edit_sequence: '1494675509'
+  name: Bay
+  is_active: true
+  item_desc: Sales Tax-County and State
+  tax_rate: 6.5
+  tax_vendor_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000D-1494675505
+    full_name: FDOR
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000B-1494675551
+  time_created: '2017-05-13T07:39:11-05:00'
+  time_modified: '2017-05-13T07:39:11-05:00'
+  edit_sequence: '1494675551'
+  name: Escambia
+  is_active: true
+  item_desc: Sales Tax
+  tax_rate: 7.5
+  tax_vendor_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000D-1494675505
+    full_name: FDOR
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000C-1494675578
+  time_created: '2017-05-13T07:39:38-05:00'
+  time_modified: '2017-05-13T07:39:38-05:00'
+  edit_sequence: '1494675578'
+  name: Exempt
+  is_active: true
+  item_desc: Sales Tax
+  tax_rate: 0.0
+  tax_vendor_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000D-1494675505
+    full_name: FDOR
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000D-1494675610
+  time_created: '2017-05-13T07:40:10-05:00'
+  time_modified: '2017-05-13T07:40:10-05:00'
+  edit_sequence: '1494675610'
+  name: Florida
+  is_active: true
+  item_desc: State Sales Tax
+  tax_rate: 6.0
+  tax_vendor_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 8000000D-1494675505
+    full_name: FDOR

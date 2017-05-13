@@ -1,0 +1,69 @@
+--- !ruby/hash:Qbxml::Hash
+xml_attributes:
+  statusCode: '0'
+  statusSeverity: Info
+  statusMessage: Status OK
+item_non_inventory_ret:
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000F-1494678305
+  time_created: '2017-05-13T08:25:05-05:00'
+  time_modified: '2017-05-13T08:25:05-05:00'
+  edit_sequence: '1494678305'
+  name: Dooya
+  full_name: Dooya
+  is_active: true
+  sublevel: 0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
+  sales_or_purchase: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    price: 0.0
+    account_ref: !ruby/hash:Qbxml::Hash
+      xml_attributes: {}
+      list_id: 80000023-1494678222
+      full_name: Sales
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 8000000E-1494678121
+  time_created: '2017-05-13T08:22:01-05:00'
+  time_modified: '2017-05-13T08:23:53-05:00'
+  edit_sequence: '1494678233'
+  name: Screen Only
+  full_name: Screen Only
+  is_active: true
+  sublevel: 0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000001-1465501463
+    full_name: Tax
+  sales_or_purchase: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    price: 0.0
+    account_ref: !ruby/hash:Qbxml::Hash
+      xml_attributes: {}
+      list_id: 80000023-1494678222
+      full_name: Sales
+- !ruby/hash:Qbxml::Hash
+  xml_attributes: {}
+  list_id: 80000011-1494697967
+  time_created: '2017-05-13T13:52:47-05:00'
+  time_modified: '2017-05-13T13:52:47-05:00'
+  edit_sequence: '1494697967'
+  name: Somfy - Tax Free
+  full_name: Somfy - Tax Free
+  is_active: true
+  sublevel: 0
+  sales_tax_code_ref: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    list_id: 80000002-1465501463
+    full_name: Non
+  sales_or_purchase: !ruby/hash:Qbxml::Hash
+    xml_attributes: {}
+    price: 0.0
+    account_ref: !ruby/hash:Qbxml::Hash
+      xml_attributes: {}
+      list_id: 80000023-1494678222
+      full_name: Sales
