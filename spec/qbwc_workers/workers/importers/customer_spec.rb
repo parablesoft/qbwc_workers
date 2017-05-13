@@ -86,6 +86,8 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	    "billing_state"=>nil,
 	    "billing_zip"=>nil,
 	    "phone"=>"813-555-1212",
+	    "tax_code"=>"Tax",
+	    "sales_tax_name"=>"Florida",
 	    "email"=>"bob@example.com"
 	  } 
 	end

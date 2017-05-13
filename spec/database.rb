@@ -11,6 +11,8 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string :billing_zip
     t.string :phone
     t.string :email
+    t.string :tax_code
+    t.string :sales_tax_name
   end
 
 
@@ -36,7 +38,9 @@ class CustomerConfigInModel < ActiveRecord::Base
       name: ["name"],
       billing_address_1: ["bill_address","addr1"],
       email: ["email"],
-      phone: ["phone"]
+      phone: ["phone"],
+      tax_code: ["sales_tax_code_ref","full_name"],
+      sales_tax_name: ["item_sales_tax_ref","full_name"]
     }
   end
 end
