@@ -16,10 +16,15 @@ module QbwcWorkers
       billing_zip: ["bill_address","postal_code"]
     }
 
+    NON_INVENTORY_ITEM_MAP = {
+      name: ["name"]
+    }
+
 
     def initialize
       self.import_map = []
       self.import_map << Configuration.customer_mapping([:billing_address,:contact_information])
+      self.import_map << Configuration.non_inventory_item_mapping
     end
 
 
@@ -28,7 +33,13 @@ module QbwcWorkers
       fields = {}
       fields.merge! CUSTOMER_IMPORT_MAP
       fields.merge! CUSTOMER_IMPORT_MAP_BILLING_ADDRESS if maps.include?(:billing_address)
-      {worker: "Customer", model:"Customer", fields: fields}
+      {worker: "Customer", model:"QbCustomer", fields: fields}
+    end
+
+    def self.non_inventory_item_mapping
+      fields = {}
+      fields.merge! NON_INVENTORY_ITEM_MAP
+      {worker: "NonInventoryItem", model: "QbProduct", fields: fields}
     end
 
     class << self

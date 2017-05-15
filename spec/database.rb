@@ -16,10 +16,28 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
 
+  create_table :sales_tax_code_ret do |t|
+    t.string :name
+    t.string :qb_id
+  end
+
   create_table :qb_customers do |t|
     t.string :name
     t.string :qb_id
   end
+
+  create_table :qb_products do |t|
+    t.string :name
+    t.string :qb_id
+  end
+end
+
+class QbProduct < ActiveRecord::Base
+
+end
+
+class SalesTaxCode < ActiveRecord::Base
+
 end
 
 class Customer < ActiveRecord::Base

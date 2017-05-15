@@ -10,26 +10,23 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 
 
   describe "#handle_response" do
-    def load_customers
-      subject.handle_response(load_query("customers"),nil,nil,nil,nil)
-    end
 
     context "default configuration" do
       it "imports the customers" do
-	load_customers
+	import_records("customers")
 	expect(Customer.count).to eq 6
       end
 
       it "does not import the customers twice" do
-	load_customers
+	import_records("customers")
 	expect(Customer.count).to eq 6
-	load_customers
+	import_records("customers")
 	expect(Customer.count).to eq 6
       end
 
       context "first customer" do
 	before do
-	  load_customers
+	  import_records("customers")
 	end
 
 	let(:customer) {Customer.first}
@@ -49,7 +46,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	QbwcWorkers::Configuration.configure do |config|
 	  config.import_map = [{worker: "Customer", model: "QbCustomer", fields: {name: ["name"]}}]
 	end
-	load_customers
+	import_records
       end
 
       it{expect(QbCustomer.count).to eq 6}
@@ -62,14 +59,14 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	QbwcWorkers::Configuration.configure do |config|
 	  config.import_map = [{worker: "Customer", model: "CustomerConfigInModel", config_in_model: true}]
 	end
-	load_customers
+	import_records
       end
 
       it{expect(CustomerConfigInModel.count).to eq 6}
 
       context "first customer" do
 	before do
-	  load_customers
+	  import_records
 	end
 
 

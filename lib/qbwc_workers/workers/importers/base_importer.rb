@@ -1,5 +1,6 @@
 require "hashie"
-class QbwcWorkers::Workers::Importers::BaseImporter
+require "qbwc"
+class QbwcWorkers::Workers::Importers::BaseImporter < QBWC::Worker
 
   LIST_ID = "list_id"
 
