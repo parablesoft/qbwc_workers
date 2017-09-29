@@ -1,6 +1,6 @@
 class QbwcWorkers::Requests::SalesTaxItemImport < QbwcWorkers::Requests::BaseImport
   self.query  ={
-    :sales_tax_item_query_rq  =>{
+    :item_sales_tax_query_rq  =>{
     }
   }
 
