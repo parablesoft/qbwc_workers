@@ -33,7 +33,7 @@ module QbwcWorkers
       fields = {}
       fields.merge! CUSTOMER_IMPORT_MAP
       fields.merge! CUSTOMER_IMPORT_MAP_BILLING_ADDRESS if maps.include?(:billing_address)
-      {worker: "Customer", model:"QbCustomer", fields: fields}
+      {worker: "Customer", model:"Customer", fields: fields}
     end
 
     def self.non_inventory_item_mapping

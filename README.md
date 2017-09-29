@@ -22,7 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+### Install the jobs
+
+* rails c
+* QBWC.add_job(:import_customers,true,'',QbwcWorkers::Workers::Importers::Customer)
+
 
 ## Development
 

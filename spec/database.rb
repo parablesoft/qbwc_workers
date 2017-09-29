@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string :qb_id
   end
 
+
+  create_table :sales_tax_code do |t|
+    t.string :name
+    t.string :qb_id
+  end
+
+  create_table :sales_tax_item do |t|
+    t.string :name
+    t.string :qb_id
+    t.decimal :rate, precision: 6, scale: 3
+  end
+
   create_table :qb_customers do |t|
     t.string :name
     t.string :qb_id
@@ -47,9 +59,32 @@ class QbCustomer < ActiveRecord::Base
 
 end
 
+class SalesTaxCodeConfigInModel < ActiveRecord::Base
+  self.table_name="sales_tax_code"
+
+  def self.qbwc_worker_import_config
+    {
+      name: ["name"],
+      qb_id: ["list_id"],
+    }
+  end
+end
+
+class SalesTaxItemConfigInModel < ActiveRecord::Base
+  self.table_name="sales_tax_item"
+
+  def self.qbwc_worker_import_config
+    {
+      name: ["name"],
+      qb_id: ["list_id"],
+      rate: ["tax_rate"]
+    }
+  end
+end
+
+
 class CustomerConfigInModel < ActiveRecord::Base
   self.table_name="customers"
-
 
   def self.qbwc_worker_import_config
     {

@@ -46,7 +46,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	QbwcWorkers::Configuration.configure do |config|
 	  config.import_map = [{worker: "Customer", model: "QbCustomer", fields: {name: ["name"]}}]
 	end
-	import_records
+	import_records("customers")
       end
 
       it{expect(QbCustomer.count).to eq 6}
@@ -59,14 +59,14 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	QbwcWorkers::Configuration.configure do |config|
 	  config.import_map = [{worker: "Customer", model: "CustomerConfigInModel", config_in_model: true}]
 	end
-	import_records
+	import_records("customers")
       end
 
       it{expect(CustomerConfigInModel.count).to eq 6}
 
       context "first customer" do
 	before do
-	  import_records
+	  import_records("customers")
 	end
 
 
