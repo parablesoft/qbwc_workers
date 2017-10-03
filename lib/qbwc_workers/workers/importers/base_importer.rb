@@ -13,7 +13,14 @@ class QbwcWorkers::Workers::Importers::BaseImporter < QBWC::Worker
 
 
   def handle_response(response, session, job, request, data)
-    import_data(response[result])
+    begin
+      import_data(response[result])
+    rescue Exception => e
+      Rails.logger.debug "Failed QBWC Worker"
+      Rails.logger.debug "QBWC-DETAIL---- #{e.message}"
+      Rails.logger.debug "QBWC-DETAIL---- #{response}"
+      Rails.logger.debug "QBWC-DETAIL---- #{request}"
+    end
   end
 
   def config
