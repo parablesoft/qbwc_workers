@@ -8,9 +8,7 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
     it{expect(subject.requests(nil,nil,nil)).to match [QbwcWorkers::Requests::CustomerImport.request]}
   end
 
-
   describe "#handle_response" do
-
     context "default configuration" do
       it "imports the customers" do
 	import_records("customers")
@@ -37,6 +35,23 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 	it{expect(customer.billing_city).to eq "Tampa"}
 	it{expect(customer.billing_state).to eq "FL"}
 	it{expect(customer.billing_zip).to eq "33601"}
+
+      end
+
+      context "updating the customer" do
+	before do
+	  import_records("customers")
+	  expect(Customer.first.name).to eq "ACME Widgets"
+	  import_records("customers_update")
+	end
+	let(:customer){Customer.first}
+
+	it{expect(customer.name).to eq "Foobar Widgets"}
+	it{expect(customer.billing_address_1).to eq "Foobar Widgets HQ"}
+	it{expect(customer.billing_address_2).to eq "Suite C"}
+	it{expect(customer.billing_city).to eq "Plant City"}
+	it{expect(customer.billing_state).to eq "FL"}
+	it{expect(customer.billing_zip).to eq "33566"}
 
       end
     end

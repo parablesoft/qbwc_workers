@@ -1,6 +1,6 @@
 require "hashie"
-require "qbwc"
-class QbwcWorkers::Workers::Importers::BaseImporter < QBWC::Worker
+# require "qbwc"
+class QbwcWorkers::Workers::Importers::BaseImporter #< QBWC::Worker
 
   LIST_ID = "list_id"
 
@@ -13,14 +13,7 @@ class QbwcWorkers::Workers::Importers::BaseImporter < QBWC::Worker
 
 
   def handle_response(response, session, job, request, data)
-    begin
-      import_data(response[result])
-    rescue Exception => e
-      Rails.logger.debug "Failed QBWC Worker"
-      Rails.logger.debug "QBWC-DETAIL---- #{e.message}"
-      Rails.logger.debug "QBWC-DETAIL---- #{response}"
-      Rails.logger.debug "QBWC-DETAIL---- #{request}"
-    end
+    import_data(response[result])
   end
 
   def config
@@ -66,16 +59,23 @@ class QbwcWorkers::Workers::Importers::BaseImporter < QBWC::Worker
 
 
   def import_item(item)
-    create_params = {}
+    item_params = {}
     import_item = item.extend Hashie::Extensions::DeepFetch
 
     return if import_map_fields.nil?
 
     import_map_fields.each_pair do |key, value|
-      create_params[key] = import_item.deep_fetch(*value) {|k| nil}
+      item_params[key] = import_item.deep_fetch(*value) {|k| nil}
     end
 
-    self.import_model.create_with(create_params).find_or_create_by!(qb_id: item[LIST_ID])
+    existing = self.import_model.find_by(qb_id: item[LIST_ID])
+
+    if existing
+      existing.update_attributes(item_params)
+    else
+      self.import_model.create_with(item_params).find_or_create_by!(qb_id: item[LIST_ID])
+    end
+
   end
 
 
