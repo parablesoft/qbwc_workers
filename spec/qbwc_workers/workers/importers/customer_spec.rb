@@ -11,57 +11,57 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
   describe "#handle_response" do
     context "default configuration" do
       it "imports the customers" do
-	import_records("customers")
-	expect(Customer.count).to eq 6
+        import_records("customers")
+        expect(Customer.count).to eq 6
       end
 
       it "does not import the customers twice" do
-	import_records("customers")
-	expect(Customer.count).to eq 6
-	import_records("customers")
-	expect(Customer.count).to eq 6
+        import_records("customers")
+        expect(Customer.count).to eq 6
+        import_records("customers")
+        expect(Customer.count).to eq 6
       end
 
       context "first customer" do
-	before do
-	  import_records("customers")
-	end
+        before do
+          import_records("customers")
+        end
 
-	let(:customer) {Customer.first}
-	it{expect(customer.name).to eq("ACME Widgets")}
-	it{expect(customer.qb_id).to eq "80000008-1483639220"}
-	it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
-	it{expect(customer.billing_address_2).to eq "Suite B"}
-	it{expect(customer.billing_city).to eq "Tampa"}
-	it{expect(customer.billing_state).to eq "FL"}
-	it{expect(customer.billing_zip).to eq "33601"}
+        let(:customer) {Customer.first}
+        it{expect(customer.name).to eq("ACME Widgets")}
+        it{expect(customer.qb_id).to eq "80000008-1483639220"}
+        it{expect(customer.billing_address_1).to eq "1234 Anywhere Lane"}
+        it{expect(customer.billing_address_2).to eq "Suite B"}
+        it{expect(customer.billing_city).to eq "Tampa"}
+        it{expect(customer.billing_state).to eq "FL"}
+        it{expect(customer.billing_zip).to eq "33601"}
 
       end
 
       context "updating the customer" do
-	before do
-	  import_records("customers")
-	  expect(Customer.first.name).to eq "ACME Widgets"
-	  import_records("customers_update")
-	end
-	let(:customer){Customer.first}
+        before do
+          import_records("customers")
+          expect(Customer.first.name).to eq "ACME Widgets"
+          import_records("customers_update")
+        end
+        let(:customer){Customer.first}
 
-	it{expect(customer.name).to eq "Foobar Widgets"}
-	it{expect(customer.billing_address_1).to eq "Foobar Widgets HQ"}
-	it{expect(customer.billing_address_2).to eq "Suite C"}
-	it{expect(customer.billing_city).to eq "Plant City"}
-	it{expect(customer.billing_state).to eq "FL"}
-	it{expect(customer.billing_zip).to eq "33566"}
+        it{expect(customer.name).to eq "Foobar Widgets"}
+        it{expect(customer.billing_address_1).to eq "Foobar Widgets HQ"}
+        it{expect(customer.billing_address_2).to eq "Suite C"}
+        it{expect(customer.billing_city).to eq "Plant City"}
+        it{expect(customer.billing_state).to eq "FL"}
+        it{expect(customer.billing_zip).to eq "33566"}
 
       end
     end
 
     context "config in initializer" do
       before do
-	QbwcWorkers::Configuration.configure do |config|
-	  config.import_map = [{worker: "Customer", model: "QbCustomer", fields: {name: ["name"]}}]
-	end
-	import_records("customers")
+        QbwcWorkers::Configuration.configure do |config|
+          config.import_map = [{worker: "Customer", model: "QbCustomer", fields: {name: ["name"]}}]
+        end
+        import_records("customers")
       end
 
       it{expect(QbCustomer.count).to eq 6}
@@ -71,41 +71,41 @@ RSpec.describe QbwcWorkers::Workers::Importers::Customer do
 
     context "config in model" do
       before do
-	QbwcWorkers::Configuration.configure do |config|
-	  config.import_map = [{worker: "Customer", model: "CustomerConfigInModel", config_in_model: true}]
-	end
-	import_records("customers")
+        QbwcWorkers::Configuration.configure do |config|
+          config.import_map = [{worker: "Customer", model: "CustomerConfigInModel", config_in_model: true}]
+        end
+        import_records("customers")
       end
 
       it{expect(CustomerConfigInModel.count).to eq 6}
 
       context "first customer" do
-	before do
-	  import_records("customers")
-	end
+        before do
+          import_records("customers")
+        end
 
 
 
-	let(:customer) {Customer.first}
-	let(:expected) do
-	  {
-	    "id"=>customer.id,
-	    "name"=>"ACME Widgets",
-	    "qb_id"=>"80000008-1483639220",
-	    "billing_address_1"=>"1234 Anywhere Lane",
-	    "billing_address_2"=>nil,
-	    "billing_city"=>nil,
-	    "billing_state"=>nil,
-	    "billing_zip"=>nil,
-	    "phone"=>"813-555-1212",
-	    "tax_code"=>"Tax",
-	    "sales_tax_name"=>"Florida",
-	    "email"=>"bob@example.com"
-	  } 
-	end
-	it "imports the right attributes based on the model config" do
-	  expect(customer.as_json).to match expected
-	end
+        let(:customer) {Customer.first}
+        let(:expected) do
+          {
+            "id"=>customer.id,
+            "name"=>"ACME Widgets",
+            "qb_id"=>"80000008-1483639220",
+            "billing_address_1"=>"1234 Anywhere Lane",
+            "billing_address_2"=>nil,
+            "billing_city"=>nil,
+            "billing_state"=>nil,
+            "billing_zip"=>nil,
+            "phone"=>"813-555-1212",
+            "tax_code"=>"Tax",
+            "sales_tax_name"=>"Florida",
+            "email"=>"bob@example.com"
+          } 
+        end
+        it "imports the right attributes based on the model config" do
+          expect(customer.as_json).to match expected
+        end
 
 
       end

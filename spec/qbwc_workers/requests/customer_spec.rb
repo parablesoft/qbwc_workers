@@ -2,12 +2,12 @@ require 'spec_helper'
 
 RSpec.describe QbwcWorkers::Requests::CustomerImport do
 
-    let(:expected) do
-      {
-	:customer_query_rq => {
-	}
+  let(:expected) do
+    {
+      :customer_query_rq => {
       }
-    end
+    }
+  end
 
   it{expect(QbwcWorkers::Requests::CustomerImport.request).to match expected}
 end
