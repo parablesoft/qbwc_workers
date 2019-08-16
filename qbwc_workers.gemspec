@@ -38,11 +38,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "database_cleaner"
   spec.add_development_dependency "factory_girl"
   spec.add_development_dependency "ffaker"
-  spec.add_development_dependency('rails', [">= 4.1.0"])
+  spec.add_development_dependency "rails", ">= 4.1.0"
   spec.add_dependency "require_all"
-  spec.add_dependency "qbxml", [">= 0.3.0"]
-  spec.add_dependency "wash_out", ["= 0.11.0"]
-  # spec.add_dependency 'actionview', ['>= 4.1.0']
-  spec.add_dependency "qbwc"
+  spec.add_dependency "qbxml", ">= 0.3.0"
+  spec.add_dependency "wash_out", ">= 0.11.0"
+  spec.add_dependency "qbwc", ">= 1.0.0"
   spec.add_dependency "hashie"
 end
